@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup 
+    x:Class="LabAcademia.Pages.PopupPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="True">
+    <VerticalStackLayout Spacing="10">
+        <Label 
+            Text="Nome"
+            TextColor="Black"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+        <Editor
+            x:Name="C_Nome"
+            TextColor="Black"
+            Placeholder="Nome do Treino..."
+            HorizontalTextAlignment="Center"/>
+        <Label
+            Text="Repetição"
+            TextColor="Black"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        <Editor 
+            x:Name="C_Repeticao"
+            TextColor="Black"
+            Placeholder="Repetição..."
+            HorizontalTextAlignment="Center"/>
+        <Label
+             Text="Carga"
+            TextColor="Black"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"/>
+        <Editor 
+            x:Name="C_Carga"
+            TextColor="Black"
+            Placeholder="Carga..."
+            HorizontalTextAlignment="Center"/>
+    </VerticalStackLayout>
+</toolkit:Popup>

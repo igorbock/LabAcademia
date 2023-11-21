@@ -1,0 +1,38 @@
+[
+  {
+    "Id": "A",
+    "Nome": "Bíceps",
+    "Repeticao": "3x12",
+    "Carga": 6
+  },
+  {
+    "Id": "A",
+    "Nome": "Bíceps Máquina",
+    "Repeticao": "3x12",
+    "Carga": 12
+  },
+  {
+    "Id": "A",
+    "Nome": "Abdominal",
+    "Repeticao": "3x12",
+    "Carga": null
+  },
+  {
+    "Id": "B",
+    "Nome": "Adutor",
+    "Repeticao": "3x12",
+    "Carga": 25
+  },
+  {
+    "Id": "B",
+    "Nome": "Abdutor",
+    "Repeticao": "3x12",
+    "Carga": 35
+  },
+  {
+    "Id": "B",
+    "Nome": "Leg Press",
+    "Repeticao": "3x12",
+    "Carga": 15
+  }
+]
