@@ -1,3 +1,5 @@
+C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.dll
+C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.pdb
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\actool\_PartialAppManifest.items
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\actool\_BundleResourceWithLogicalName.items
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\actool\_ProcessedImageAssetsPath.items
@@ -11,8 +13,6 @@ C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAc
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.AssemblyInfoInputs.cache
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.AssemblyInfo.cs
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.csproj.CoreCompileInputs.cache
-C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.dll
-C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.pdb
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.dll
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\refint\LabAcademiaBiblioteca.dll
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-maccatalyst\LabAcademiaBiblioteca.pdb

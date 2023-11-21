@@ -1,3 +1,5 @@
+C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-ios\LabAcademiaBiblioteca.dll
+C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-ios\LabAcademiaBiblioteca.pdb
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\actool\_PartialAppManifest.items
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\actool\_BundleResourceWithLogicalName.items
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\actool\_ProcessedImageAssetsPath.items
@@ -11,8 +13,6 @@ C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBi
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBiblioteca.AssemblyInfoInputs.cache
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBiblioteca.AssemblyInfo.cs
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBiblioteca.csproj.CoreCompileInputs.cache
-C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-ios\LabAcademiaBiblioteca.dll
-C:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0-ios\LabAcademiaBiblioteca.pdb
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBiblioteca.dll
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\refint\LabAcademiaBiblioteca.dll
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0-ios\LabAcademiaBiblioteca.pdb
