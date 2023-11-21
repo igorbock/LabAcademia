@@ -1,5 +1,6 @@
 ﻿namespace LabAcademiaBiblioteca.Models;
 
+[Table("treinos", Schema = "academia")]
 public class Treino
 {
     public Treino() { }
@@ -15,7 +16,11 @@ public class Treino
         Nome = p_Nome;
     }
 
+    [Key]
     public char Id { get; set; }
+
+    [MaxLength(100)]
+    [MinLength(5)]
     public string Nome { get; set; }
     public List<Exercicio> Exercicios { get; set; }
 }

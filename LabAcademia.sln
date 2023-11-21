@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabAcademia", "LabAcademia\LabAcademia.csproj", "{420B882F-AD48-4275-889D-F55F71694D15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAcademiaTestes", "LabAcademiaTestes\LabAcademiaTestes.csproj", "{FBAA97CD-976C-42E4-9796-501A7A23BE78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabAcademiaTestes", "LabAcademiaTestes\LabAcademiaTestes.csproj", "{FBAA97CD-976C-42E4-9796-501A7A23BE78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAcademiaBiblioteca", "LabAcademiaBiblioteca\LabAcademiaBiblioteca.csproj", "{1FDF5C1D-1CC0-4133-8577-D6AC6FC4D12B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabAcademiaBiblioteca", "LabAcademiaBiblioteca\LabAcademiaBiblioteca.csproj", "{1FDF5C1D-1CC0-4133-8577-D6AC6FC4D12B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabAcademiaAPI", "LabAcademiaAPI\LabAcademiaAPI.csproj", "{F277A9D3-9974-4D44-A4D3-4AD30D23792C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{1FDF5C1D-1CC0-4133-8577-D6AC6FC4D12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FDF5C1D-1CC0-4133-8577-D6AC6FC4D12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FDF5C1D-1CC0-4133-8577-D6AC6FC4D12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F277A9D3-9974-4D44-A4D3-4AD30D23792C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F277A9D3-9974-4D44-A4D3-4AD30D23792C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F277A9D3-9974-4D44-A4D3-4AD30D23792C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F277A9D3-9974-4D44-A4D3-4AD30D23792C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
