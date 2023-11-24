@@ -2,9 +2,7 @@
 
 public class TreinoService : ITreinoService
 {
-    private static string c_DiretorioPrincipal = FileSystem.Current.AppDataDirectory;
-    private static string c_NomeArquivo = "Treinos.json";
-    private static string c_DiretorioArquivo = Path.Combine(c_DiretorioPrincipal, c_NomeArquivo);
+    private static string c_DiretorioArquivo = FileSystemHelper.CM_ObterDiretorioLocalComArquivo("Treinos.json");
 
     public IStreamHelper<Treino> C_StreamHelper { get; set; }
     public ITreinoHelper C_TreinoHelper { get; set; }

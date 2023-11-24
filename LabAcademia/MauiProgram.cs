@@ -20,6 +20,8 @@
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddScoped<ITreinoService, TreinoService>();
             builder.Services.AddScoped<IExercicioService, ExercicioService>();
+            builder.Services.AddScoped<IPraticaService, PraticaService>();
+            builder.Services.AddScoped<IHistoricoService, HistoricoService>();
 
             builder.Services.AddScoped<IStreamHelper<Treino>, StreamHelper<Treino>>();
             builder.Services.AddScoped<ITreinoHelper, TreinoHelper>();

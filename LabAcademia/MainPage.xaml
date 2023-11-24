@@ -41,11 +41,25 @@
             </ListView>
 
             <Button Text="Criar Treino"
-                    Clicked="Button_Clicked"/>
+                    Clicked="Button_Clicked"
+                    TextColor="Black"/>
 
             <Button x:Name="Apagar"
                     Text="Apagar Treino"
-                    Clicked="Apagar_Clicked"/>
+                    Clicked="Apagar_Clicked"
+                    TextColor="Black"/>
+
+            <Button x:Name="btn_Iniciar"
+                    Text="Iniciar Treino"
+                    Clicked="btn_Iniciar_Clicked"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+
+            <Button x:Name="btn_Historico"
+                    Clicked="btn_Historico_Clicked"
+                    Text="Ver histórico de treinos"
+                    TextColor="Black"
+                    BackgroundColor="DodgerBlue"/>
 
             <!--<Image
                 Source="dotnet_bot.png"

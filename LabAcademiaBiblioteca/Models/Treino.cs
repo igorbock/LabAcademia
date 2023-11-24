@@ -18,4 +18,10 @@ public class Treino
     public char Id { get; set; }
     public string Nome { get; set; }
     public List<Exercicio> Exercicios { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public DateTime? Inicio { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public DateTime? Fim { get; set; }
 }

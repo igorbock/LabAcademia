@@ -28,6 +28,14 @@ public class StreamHelper<TipoT> : IStreamHelper<TipoT>
         await m_StreamWriter.WriteAsync(m_NovoArquivoJson);
     }
 
+    public void CM_SerializarESalvarNovoJson(IEnumerable<TipoT> p_Entidade, string p_Diretorio)
+    {
+        var m_NovoArquivoJson = JsonSerializer.Serialize(p_Entidade);
+
+        using var m_StreamWriter = new StreamWriter(p_Diretorio, append: false, System.Text.Encoding.UTF8);
+        m_StreamWriter.Write(m_NovoArquivoJson);
+    }
+
     public async Task CM_SalvarNovoArquivoCasoNaoExistaAsync(TipoT p_Entidade, string p_Diretorio)
     {
         using var m_FileStream = System.IO.File.OpenWrite(p_Diretorio);
