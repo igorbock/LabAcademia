@@ -23,9 +23,9 @@ public partial class TreinoPage : ContentPage
         Title = m_Treino.Nome;
         C_Exercicios = m_Treino.Exercicios;
 
-        Treinos.ItemsSource = C_Exercicios;
-        if(C_Exercicios == null || C_Exercicios.Count == 0)
-            Remover.IsEnabled = false;
+        //Treinos.ItemsSource = C_Exercicios;
+        //if(C_Exercicios == null || C_Exercicios.Count == 0)
+        //    Remover.IsEnabled = false;
     }
 
     private async void Treinos_ItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -49,9 +49,7 @@ public partial class MainPage : ContentPage
         try
         {
             var m_Nomes = C_Treinos.Select(a => a.Nome).ToArray();
-            var m_TreinoSelecionado = await DisplayActionSheet("Apagar Treino:", "Cancelar", "Sair", FlowDirection.MatchParent, m_Nomes) ?? throw new Exception();
-            if (m_TreinoSelecionado.Equals("Sair"))
-                return;
+            var m_TreinoSelecionado = await DisplayActionSheet("Apagar Treino:", "Cancelar", null, FlowDirection.MatchParent, m_Nomes) ?? throw new Exception();
             var m_Treino = C_Treinos.FirstOrDefault(a => a.Nome.Equals(m_TreinoSelecionado));
 
             var m_Resposta = await DisplayAlert("Remover", $"Confirma a remoção do treino: {m_Treino.Nome}?", "Sim", "Não");
@@ -68,5 +66,14 @@ public partial class MainPage : ContentPage
         {
             OnAppearing();
         }
+    }
+
+    private async void btn_Iniciar_Clicked(object sender, EventArgs e)
+    {
+        var m_Nomes = C_Treinos.Select(a => a.Nome).ToArray();
+        var m_TreinoSelecionado = await DisplayActionSheet("Selecione o treino...", "Cancelar", null, FlowDirection.MatchParent, m_Nomes) ?? throw new Exception();
+        var m_Treino = C_Treinos.FirstOrDefault(a => a.Nome.Equals(m_TreinoSelecionado));
+
+        await Navigation.PushAsync(new PraticaPage(m_Treino));
     }
 }

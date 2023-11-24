@@ -50,6 +50,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.PopupPag
 build_metadata.AdditionalFiles.TargetPath = Views\PopupPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\PopupPage.xaml
 
+[C:/Projetos/LabAcademia/LabAcademia/Views/PraticaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.PraticaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PraticaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PraticaPage.xaml
+
 [C:/Projetos/LabAcademia/LabAcademia/Views/TreinoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.TreinoPage.xaml

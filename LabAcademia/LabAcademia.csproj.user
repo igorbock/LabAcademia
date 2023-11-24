@@ -22,6 +22,9 @@
     <MauiXaml Update="Views\PopupPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\PraticaPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\TreinoPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

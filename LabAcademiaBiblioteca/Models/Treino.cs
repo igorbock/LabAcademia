@@ -15,7 +15,14 @@ public class Treino
         Nome = p_Nome;
     }
 
+    [PrimaryKey]
+    public int Codigo { get; set; }
+
     public char Id { get; set; }
+
+    [MaxLength(50)]
     public string Nome { get; set; }
+
+    [Ignore]
     public List<Exercicio> Exercicios { get; set; }
 }

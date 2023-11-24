@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tiJmc8ivZCPWpfyaDB+ZfjXEEN73rfveSvvPDU+KWxZQZ/rVCdhKegP65bmy9BPST8HJOXx7EtWEeC+ziWyPWg==",
+  "dgSpecHash": "XUUdR1uVUo+lJ7Pzgs2cuIF1Ogoz8bSyBGSIpkmNQzYpu2nnb+m9J9UJQOxlIP8Z0xGXryknk39vnThsoAhJbw==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,12 @@
     "C:\\Users\\igorb\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []

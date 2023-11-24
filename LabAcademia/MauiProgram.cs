@@ -24,6 +24,13 @@
             builder.Services.AddScoped<IStreamHelper<Treino>, StreamHelper<Treino>>();
             builder.Services.AddScoped<ITreinoHelper, TreinoHelper>();
 
+            builder.Services.AddScoped<IRepository<Treino>, TreinoRepository>();
+
+            //Configurar DB
+            var m_NomeDB = "LabAcademia.db3";
+            var m_DiretorioDB = FileHelper.CM_ObterDiretorioLocalComArquivo(m_NomeDB);
+            builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<TreinoRepository>(s, m_DiretorioDB));
+
             return builder.Build();
         }
     }

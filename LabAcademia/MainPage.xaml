@@ -47,6 +47,11 @@
                     Text="Apagar Treino"
                     Clicked="Apagar_Clicked"/>
 
+            <Button x:Name="btn_Iniciar"
+                    Text="Iniciar Treino"
+                    Clicked="btn_Iniciar_Clicked"
+                    BackgroundColor="Blue"/>
+
             <!--<Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
