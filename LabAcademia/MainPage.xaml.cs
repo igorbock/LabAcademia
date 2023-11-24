@@ -101,6 +101,6 @@ public partial class MainPage : ContentPage
 
     private async void btn_Historico_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new HistoricoPage(C_HistoricoService));
+        await Navigation.PushAsync(new HistoricoPage(C_HistoricoService, C_TreinoService, C_ExercicioService));
     }
 }

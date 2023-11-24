@@ -19,6 +19,7 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Nome}"
                                        FontAttributes="Bold"
@@ -39,13 +40,16 @@
                 </ListView.ItemTemplate>
             </ListView>
             
-            <Button
+            <Button x:Name="btn_Adicionar"
                 Text="Adicionar exercício"
                 Clicked="Button_Clicked"/>
 
-            <Button x:Name="Remover"
+            <Button x:Name="btn_Remover"
                     Text="Remover exercício"
                     Clicked="Remover_Clicked"/>
+
+            <Label x:Name="lbl_TempoTotal"
+                   TextColor="White"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

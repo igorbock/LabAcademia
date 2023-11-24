@@ -4,9 +4,17 @@ public partial class TreinoPage : ContentPage
 {
     public ITreinoService C_TreinoService { get; set; }
     public IExercicioService C_ExercicioService { get; set; }
-    public Exercicio C_ExercicioSelecionado { get; set; }
+    public Treino C_TreinoAtual { get; set; }
     public List<Exercicio> C_Exercicios { get; set; }
     public char C_Id { get; set; }
+    public bool C_AcessoTotal { get; set; }
+
+    public TreinoPage(Treino p_Treino)
+    {
+        InitializeComponent();
+        C_TreinoAtual = p_Treino;
+        C_AcessoTotal = false;
+    }
 
     public TreinoPage(ITreinoService p_TreinoService, IExercicioService p_ExercicioService, char p_Id)
     {
@@ -14,22 +22,43 @@ public partial class TreinoPage : ContentPage
         C_Id = p_Id;
         C_TreinoService = p_TreinoService;
         C_ExercicioService = p_ExercicioService;
+        C_AcessoTotal = true;
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        var m_Treino = C_TreinoService.CM_LerTreino(C_Id);
+
+        Treino m_Treino;
+        if (C_TreinoAtual == null)
+            m_Treino = C_TreinoService.CM_LerTreino(C_Id);
+        else
+            m_Treino = C_TreinoAtual;
+
         Title = m_Treino.Nome;
         C_Exercicios = m_Treino.Exercicios;
 
         Treinos.ItemsSource = C_Exercicios;
         if(C_Exercicios == null || C_Exercicios.Count == 0)
-            Remover.IsEnabled = false;
+            btn_Remover.IsEnabled = false;
+
+        if(C_AcessoTotal == false)
+        {
+            btn_Adicionar.IsVisible = false;
+            btn_Remover.IsVisible = false;
+            Treinos.IsEnabled = false;
+            lbl_TempoTotal.IsVisible = true;
+
+            var m_Diferenca = DateTimeHelper.CM_ObterDiferenca(m_Treino.Inicio.GetValueOrDefault(), m_Treino.Fim.GetValueOrDefault());
+            lbl_TempoTotal.Text = string.Format("Tempo do treino: {0} minutos", m_Diferenca.Minutes.ToString().PadLeft(2, '0'));
+        }
     }
 
     private async void Treinos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
+        if (C_AcessoTotal == false)
+            return;
+
         var m_ExercicioSelecionado = e.SelectedItem as Exercicio;
         var m_NovaCarga = await DisplayPromptAsync("Nova carga...", "Atualize a carga do exercício:", accept: "Salvar", cancel: "Cancelar", maxLength: 3, initialValue: m_ExercicioSelecionado.Carga.ToString());
         if (string.IsNullOrEmpty(m_NovaCarga))

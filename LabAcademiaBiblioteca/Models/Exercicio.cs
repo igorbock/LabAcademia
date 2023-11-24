@@ -13,5 +13,10 @@ public class Exercicio
 
     public string Nome { get; set; }
     public string Repeticao { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public int? Carga { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public bool? Concluido { get; set; }
 }
