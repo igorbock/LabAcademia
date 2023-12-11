@@ -42,6 +42,7 @@ public partial class TreinoPage : ContentPage
         if(C_Exercicios == null || C_Exercicios.Count == 0)
             btn_Remover.IsEnabled = false;
 
+
         if(C_AcessoTotal == false)
         {
             btn_Adicionar.IsVisible = false;
