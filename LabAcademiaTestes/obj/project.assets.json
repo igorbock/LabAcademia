@@ -998,22 +998,25 @@
   },
   "packageFolders": {
     "C:\\Users\\igorb\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
+      "projectUniqueName": "D:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
       "projectName": "LabAcademiaTestes",
-      "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
+      "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
       "packagesPath": "C:\\Users\\igorb\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\LabAcademia\\LabAcademiaTestes\\obj\\",
+      "outputPath": "D:\\Projetos\\LabAcademia\\LabAcademiaTestes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\igorb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1022,6 +1025,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -1029,8 +1033,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
-              "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
+            "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+              "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
             }
           }
         }

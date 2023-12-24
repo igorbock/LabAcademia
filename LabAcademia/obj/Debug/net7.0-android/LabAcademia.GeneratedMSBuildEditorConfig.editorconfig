@@ -12,59 +12,59 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LabAcademia
-build_property.ProjectDir = C:\Projetos\LabAcademia\LabAcademia\
+build_property.ProjectDir = D:\Projetos\LabAcademia\LabAcademia\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Projetos/LabAcademia/LabAcademia/App.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/AppShell.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/MainPage.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Resources/Styles/Colors.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Resources/Styles/Styles.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Views/HistoricoPage.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Views/HistoricoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.HistoricoPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HistoricoPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HistoricoPage.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Views/PopupPage.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Views/PopupPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.PopupPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\PopupPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\PopupPage.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Views/PraticaPage.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Views/PraticaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.PraticaPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\PraticaPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\PraticaPage.xaml
 
-[C:/Projetos/LabAcademia/LabAcademia/Views/TreinoPage.xaml]
+[D:/Projetos/LabAcademia/LabAcademia/Views/TreinoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = LabAcademia.Views.TreinoPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\TreinoPage.xaml

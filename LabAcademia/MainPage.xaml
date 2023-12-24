@@ -61,7 +61,7 @@
                     TextColor="Black"
                     BackgroundColor="DodgerBlue"/>
 
-            <!--<Image
+            <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
@@ -85,7 +85,7 @@
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />-->
+                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

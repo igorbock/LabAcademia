@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zjzfTgHczl1c1Qb8crKPK/j18qUthx07hPxf3LsEqz6KPOosQCJ1gF/e9RFlx212gzoCiHlFmosGWOehEhMLlA==",
+  "dgSpecHash": "wtmXCipYvDjX7AptaFDbpQYkKEr3NruuSuo8yp7sBqZvi5GDCy11o//bEZA3l11h60zTb01wIfNjiqxtccuMgQ==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
+  "projectFilePath": "D:\\Projetos\\LabAcademia\\LabAcademiaTestes\\LabAcademiaTestes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\igorb\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.codecoverage\\17.7.1\\microsoft.codecoverage.17.7.1.nupkg.sha512",

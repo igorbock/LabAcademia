@@ -35,6 +35,10 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Arch.Core.Runtime.dll",
 		"Xamarin.AndroidX.AsyncLayoutInflater.dll",
 		"Xamarin.AndroidX.Browser.dll",
+		"Xamarin.AndroidX.Camera.Camera2.dll",
+		"Xamarin.AndroidX.Camera.Core.dll",
+		"Xamarin.AndroidX.Camera.Lifecycle.dll",
+		"Xamarin.AndroidX.Camera.View.dll",
 		"Xamarin.AndroidX.CardView.dll",
 		"Xamarin.AndroidX.Collection.dll",
 		"Xamarin.AndroidX.Collection.Ktx.dll",
@@ -93,6 +97,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.ViewPager2.dll",
 		"Xamarin.AndroidX.Window.dll",
 		"Xamarin.Google.Android.Material.dll",
+		"Xamarin.Google.AutoValue.Annotations.dll",
 		"Xamarin.Google.Crypto.Tink.Android.dll",
 		"Xamarin.Google.Guava.ListenableFuture.dll",
 		"Xamarin.Jetbrains.Annotations.dll",
@@ -102,6 +107,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Kotlin.StdLib.Jdk8.dll",
 		"Xamarin.KotlinX.Coroutines.Android.dll",
 		"Xamarin.KotlinX.Coroutines.Core.Jvm.dll",
+		"zxing.dll",
+		"ZXing.Net.MAUI.dll",
 		"LabAcademiaBiblioteca.dll",
 	};
 	public static String[] Dependencies = new String[]{

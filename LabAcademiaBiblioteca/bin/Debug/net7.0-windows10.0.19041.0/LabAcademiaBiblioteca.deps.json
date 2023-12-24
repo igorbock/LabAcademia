@@ -11,24 +11,24 @@
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0",
-          "Microsoft.Maui.Graphics": "7.0.96",
-          "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "7.0.96",
+          "Microsoft.Maui.Graphics": "7.0.101",
+          "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "7.0.101",
           "Microsoft.WindowsAppSDK": "1.2.221209.1",
-          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.29"
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.31"
         },
         "runtime": {
           "LabAcademiaBiblioteca.dll": {}
         }
       },
-      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.29": {
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.31": {
         "runtime": {
           "Microsoft.Windows.SDK.NET.dll": {
             "assemblyVersion": "10.0.19041.24",
-            "fileVersion": "10.0.19041.29"
+            "fileVersion": "10.0.19041.31"
           },
           "WinRT.Runtime.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.3.42921"
+            "fileVersion": "2.0.4.44211"
           }
         }
       },
@@ -144,25 +144,25 @@
           }
         }
       },
-      "Microsoft.Maui.Graphics/7.0.96": {
+      "Microsoft.Maui.Graphics/7.0.101": {
         "runtime": {
           "lib/net7.0-windows10.0.19041/Microsoft.Maui.Graphics.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "7.0.93.3"
+            "fileVersion": "7.0.97.4"
           }
         }
       },
-      "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/7.0.96": {
+      "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/7.0.101": {
         "dependencies": {
           "Microsoft.Graphics.Win2D": "1.0.5.1",
-          "Microsoft.Maui.Graphics": "7.0.96",
+          "Microsoft.Maui.Graphics": "7.0.101",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756",
           "Microsoft.WindowsAppSDK": "1.2.221209.1"
         },
         "runtime": {
           "lib/net7.0-windows10.0.19041/Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "7.0.93.3"
+            "fileVersion": "7.0.97.4"
           }
         }
       },
@@ -255,7 +255,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.29": {
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.31": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
@@ -323,19 +323,19 @@
       "path": "microsoft.graphics.win2d/1.0.5.1",
       "hashPath": "microsoft.graphics.win2d.1.0.5.1.nupkg.sha512"
     },
-    "Microsoft.Maui.Graphics/7.0.96": {
+    "Microsoft.Maui.Graphics/7.0.101": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KlIfq6vs7Oo12w/49pFFwx3OvyVECiBxQf8d1Asxk/1p/OjUjo+0ELL8fyskE2thRSPj9KupAxXI2/CS7ILICA==",
-      "path": "microsoft.maui.graphics/7.0.96",
-      "hashPath": "microsoft.maui.graphics.7.0.96.nupkg.sha512"
+      "sha512": "sha512-2+dHQpufctgN66Y+otNnBu9o+ODYlHvc2ufQ185wB2GqhklQeeko4xFsZSj3weDif4Idg0cgAY84qU3cQ0OcTw==",
+      "path": "microsoft.maui.graphics/7.0.101",
+      "hashPath": "microsoft.maui.graphics.7.0.101.nupkg.sha512"
     },
-    "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/7.0.96": {
+    "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/7.0.101": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fQxPE4MHq0p7BqpioKNC/YAuDtYsN0ObbPOWp9fV+WIaVjfMYK/c+iIrQbXgthGExWP2y++DRcWDefqstYfhmg==",
-      "path": "microsoft.maui.graphics.win2d.winui.desktop/7.0.96",
-      "hashPath": "microsoft.maui.graphics.win2d.winui.desktop.7.0.96.nupkg.sha512"
+      "sha512": "sha512-P6uBnryY3b3rpLiKj173UIf4z/dWJqntEabUiPBlJgXIcR4+u8IQg00cADNw+OsSD1yZwSwL+4pEFp5YyiOf/A==",
+      "path": "microsoft.maui.graphics.win2d.winui.desktop/7.0.101",
+      "hashPath": "microsoft.maui.graphics.win2d.winui.desktop.7.0.101.nupkg.sha512"
     },
     "Microsoft.Windows.SDK.BuildTools/10.0.22621.756": {
       "type": "package",

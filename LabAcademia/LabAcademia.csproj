@@ -49,8 +49,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="ViewModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="ZXing.Net.Maui" Version="0.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -66,10 +76,6 @@
 	  <MauiXaml Update="Views\TreinoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>

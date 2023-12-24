@@ -10,3 +10,16 @@ C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblio
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\refint\LabAcademiaBiblioteca.dll
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.pdb
 C:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\ref\LabAcademiaBiblioteca.dll
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0\LabAcademiaBiblioteca.deps.json
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0\LabAcademiaBiblioteca.dll
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\bin\Debug\net7.0\LabAcademiaBiblioteca.pdb
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.csproj.AssemblyReference.cache
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.AssemblyInfoInputs.cache
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.AssemblyInfo.cs
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.csproj.CoreCompileInputs.cache
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.sourcelink.json
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.dll
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\refint\LabAcademiaBiblioteca.dll
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\LabAcademiaBiblioteca.pdb
+D:\Projetos\LabAcademia\LabAcademiaBiblioteca\obj\Debug\net7.0\ref\LabAcademiaBiblioteca.dll

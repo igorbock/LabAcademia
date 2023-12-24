@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj": {}
+    "D:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+    "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj",
+        "projectUniqueName": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj",
         "projectName": "LabAcademiaBiblioteca",
-        "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj",
+        "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj",
         "packagesPath": "C:\\Users\\igorb\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\obj\\",
+        "outputPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\igorb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,6 +33,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -553,21 +556,23 @@
         }
       }
     },
-    "C:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj": {
+    "D:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj",
+        "projectUniqueName": "D:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj",
         "projectName": "LabAcademia",
-        "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj",
+        "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademia\\LabAcademia.csproj",
         "packagesPath": "C:\\Users\\igorb\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\LabAcademia\\LabAcademia\\obj\\",
+        "outputPath": "D:\\Projetos\\LabAcademia\\LabAcademia\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\igorb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -579,6 +584,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -586,32 +592,32 @@
           "net7.0-android33.0": {
             "targetAlias": "net7.0-android",
             "projectReferences": {
-              "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
-                "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
+              "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+                "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
               }
             }
           },
           "net7.0-ios16.1": {
             "targetAlias": "net7.0-ios",
             "projectReferences": {
-              "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
-                "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
+              "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+                "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
               }
             }
           },
           "net7.0-maccatalyst16.1": {
             "targetAlias": "net7.0-maccatalyst",
             "projectReferences": {
-              "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
-                "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
+              "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+                "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
               }
             }
           },
           "net7.0-windows10.0.19041": {
             "targetAlias": "net7.0-windows10.0.19041.0",
             "projectReferences": {
-              "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
-                "projectPath": "C:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
+              "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj": {
+                "projectPath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj"
               }
             }
           }
@@ -720,6 +726,10 @@
               "target": "Package",
               "version": "[1.7.0.1, )",
               "autoReferenced": true
+            },
+            "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [
@@ -840,6 +850,10 @@
               "target": "Package",
               "version": "[7.0.100-1.23211.1, )",
               "autoReferenced": true
+            },
+            "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [
@@ -948,6 +962,10 @@
               "target": "Package",
               "version": "[7.0.100-1.23211.1, )",
               "autoReferenced": true
+            },
+            "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [
@@ -1055,6 +1073,10 @@
               "target": "Package",
               "version": "[1.2.221209.1, )",
               "autoReferenced": true
+            },
+            "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.4.0, )"
             }
           },
           "imports": [
