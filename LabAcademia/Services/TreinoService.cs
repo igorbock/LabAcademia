@@ -1,4 +1,6 @@
-﻿namespace LabAcademia.Services;
+﻿using System.Net.Http.Json;
+
+namespace LabAcademia.Services;
 
 public class TreinoService : ITreinoService
 {
@@ -7,12 +9,20 @@ public class TreinoService : ITreinoService
     public IStreamHelper<Treino> C_StreamHelper { get; set; }
     public ITreinoHelper C_TreinoHelper { get; set; }
 
-    public TreinoService() { }
+    public IHttpClientFactory C_HttpClientFactory { get; set; }
+    public HttpClient C_HttpClient { get; set; }
 
-    public TreinoService(IStreamHelper<Treino> p_StreamHelper, ITreinoHelper p_TreinoHelper)
+    public TreinoService(
+        IStreamHelper<Treino> p_StreamHelper,
+        ITreinoHelper p_TreinoHelper,
+        IHttpClientFactory p_HttpClientFactory)
     {
         C_StreamHelper = p_StreamHelper;
         C_TreinoHelper = p_TreinoHelper;
+        C_HttpClientFactory = p_HttpClientFactory;
+
+        C_HttpClient = C_HttpClientFactory.CreateClient("LabAcademiaAPI");
+        C_HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", SecureStorage.GetAsync("Token").Result);
     }
 
     public async Task CM_AdicionarExercicioAoTreinoAsync(char p_TreinoId, Exercicio p_Exercicio)
@@ -52,20 +62,22 @@ public class TreinoService : ITreinoService
 
     public async Task CM_EscreverTreinoAsync(string p_Nome)
     {
-        var m_NomeVazio = string.IsNullOrEmpty(p_Nome);
-        if (m_NomeVazio) throw new Exception("Nome não pode estar em branco!");
-        var m_NovoTreino = new Treino(p_Nome);
+        if (string.IsNullOrWhiteSpace(p_Nome))
+            throw new Exception("Nome não pode estar em branco!");
 
+        var m_NovoTreino = new Treino { Nome = p_Nome };
+        var m_JsonTreino = JsonSerializer.Serialize(m_NovoTreino);
+        var m_StringContent = new StringContent(m_JsonTreino, Encoding.UTF8, "application/json");
         try
         {
             var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-            m_NovoTreino.Id = C_TreinoHelper.CM_IdNextValue(m_Treinos);
+            m_NovoTreino.Codigo = C_TreinoHelper.CM_IdNextValue(m_Treinos);
             m_Treinos.Add(m_NovoTreino);
             await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);
         }
         catch (FileNotFoundException)
         {
-            m_NovoTreino.Id = 'A';
+            m_NovoTreino.Codigo = 'A';
             await C_StreamHelper.CM_SalvarNovoArquivoCasoNaoExistaAsync(m_NovoTreino, c_DiretorioArquivo);
         }
     }
@@ -73,24 +85,18 @@ public class TreinoService : ITreinoService
     public async Task<Treino> CM_LerTreinoAsync(char p_Id)
     {
         var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        return m_Treinos.First(a => a.Id == p_Id);
+        return m_Treinos.First(a => a.Codigo == p_Id);
     }
 
     public Treino CM_LerTreino(char p_Id)
     {
         var m_Treinos = C_StreamHelper.CM_AbrirArquivoEObterTipoGenerico(c_DiretorioArquivo);
-        return m_Treinos.First(a => a.Id == p_Id);
+        return m_Treinos.First(a => a.Codigo == p_Id);
     }
 
-    public IEnumerable<Treino> CM_TodosTreinos()
+    public async Task<IEnumerable<Treino>> CM_TodosTreinosAsync(string p_Matricula)
     {
-        try
-        {
-            return C_StreamHelper.CM_AbrirArquivoEObterTipoGenerico(c_DiretorioArquivo);
-        }
-        catch (FileNotFoundException)
-        {
-            return new List<Treino>();
-        }
+        var m_Retorno = await C_HttpClient.GetFromJsonAsync<IEnumerable<Treino>>($"api/AlunoTreinos?p_Matricula={p_Matricula}");
+        return m_Retorno;
     }
 }

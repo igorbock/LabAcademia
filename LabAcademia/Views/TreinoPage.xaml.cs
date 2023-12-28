@@ -87,10 +87,10 @@ public partial class TreinoPage : ContentPage
             if (m_CamposIncompletos)
                 throw new ArgumentNullException();
 
-            var m_Exercicio = new Exercicio(m_Nome, m_Repeticao, int.Parse(m_Carga));
+            var m_Exercicio = new Exercicio(m_Nome, int.Parse(m_Repeticao), int.Parse(m_Carga));
             var m_Treino = await C_TreinoService.CM_LerTreinoAsync(C_Id);
 
-            await C_TreinoService.CM_AdicionarExercicioAoTreinoAsync(m_Treino.Id, m_Exercicio);
+            await C_TreinoService.CM_AdicionarExercicioAoTreinoAsync(m_Treino.Codigo, m_Exercicio);
         }
         catch (ArgumentNullException)
         {
@@ -112,7 +112,7 @@ public partial class TreinoPage : ContentPage
     {
         try
         {
-            var m_Nomes = C_Exercicios.Select(a => a.Nome).ToArray();
+            var m_Nomes = C_Exercicios.Select(a => a.Descricao).ToArray();
             var m_ExercicioSelecionado = await DisplayActionSheet("Selecione o exercício a ser removido...", "Cancelar", "Sair", FlowDirection.MatchParent, m_Nomes) ?? throw new Exception();
             if (m_ExercicioSelecionado.Equals("Sair"))
                 return;
@@ -121,7 +121,7 @@ public partial class TreinoPage : ContentPage
             if (m_Resposta == false)
                 return;
 
-            var m_Exercicio = C_Exercicios.FirstOrDefault(a => a.Nome.Equals(m_ExercicioSelecionado));
+            var m_Exercicio = C_Exercicios.FirstOrDefault(a => a.Descricao.Equals(m_ExercicioSelecionado));
             await C_TreinoService.CM_RemoverExercicioDoTreinoAsync(C_Id, m_Exercicio);
         }
         catch (Exception)

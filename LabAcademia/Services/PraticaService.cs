@@ -33,7 +33,7 @@ public class PraticaService : IPraticaService
     public async Task CM_ConcluirPraticaAsync(Treino p_Treino)
     {
         var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        var m_TreinoSelecionado = m_Treinos.LastOrDefault(a => a.Id == p_Treino.Id);
+        var m_TreinoSelecionado = m_Treinos.LastOrDefault(a => a.Codigo == p_Treino.Codigo);
 
         m_TreinoSelecionado.Fim = DateTime.Now;
 
@@ -43,7 +43,7 @@ public class PraticaService : IPraticaService
     public void CM_RemoverPratica(Treino p_Treino)
     {
         var m_Treinos = C_StreamHelper.CM_AbrirArquivoEObterTipoGenerico(c_DiretorioArquivo);
-        var m_TreinoSelecionado = m_Treinos.LastOrDefault(a => a.Id == p_Treino.Id);
+        var m_TreinoSelecionado = m_Treinos.LastOrDefault(a => a.Codigo == p_Treino.Codigo);
 
         m_Treinos.Remove(m_TreinoSelecionado);
 

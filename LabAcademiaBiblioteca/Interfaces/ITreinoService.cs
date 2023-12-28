@@ -7,7 +7,7 @@ public interface ITreinoService
     Task<Treino> CM_LerTreinoAsync(char p_Id);
     Treino CM_LerTreino(char p_Id);
     Task CM_ApagarTreinoAsync(char p_Id);
-    IEnumerable<Treino> CM_TodosTreinos();
+    Task<IEnumerable<Treino>> CM_TodosTreinosAsync(string p_Matricula);
     Task CM_AdicionarExercicioAoTreinoAsync(char p_TreinoId, Exercicio p_Exercicio);
     Task CM_RemoverExercicioDoTreinoAsync(char p_IdTreino, Exercicio p_Exercicio);
 }

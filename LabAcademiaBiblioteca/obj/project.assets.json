@@ -6368,7 +6368,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.iOS.Ref",
-            "version": "[16.4.7125, 16.4.7125]"
+            "version": "[16.4.7127, 16.4.7127]"
           },
           {
             "name": "Microsoft.Maui.Controls.Ref.ios",
@@ -6457,7 +6457,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.MacCatalyst.Ref",
-            "version": "[16.4.7125, 16.4.7125]"
+            "version": "[16.4.7127, 16.4.7127]"
           },
           {
             "name": "Microsoft.Maui.Controls.Ref.maccatalyst",

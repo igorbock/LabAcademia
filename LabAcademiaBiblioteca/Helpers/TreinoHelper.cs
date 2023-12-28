@@ -4,7 +4,7 @@ public class TreinoHelper : ITreinoHelper
 {
     public void CM_SelecionarTreinoEAdicionarExercicio(char p_TreinoId, IEnumerable<Treino> p_Treinos, Exercicio p_Exercicio)
     {
-        var m_TreinoSelecionado = p_Treinos.FirstOrDefault(a => a.Id == p_TreinoId);
+        var m_TreinoSelecionado = p_Treinos.FirstOrDefault(a => a.Codigo == p_TreinoId);
         if (m_TreinoSelecionado.Exercicios == null)
         {
             m_TreinoSelecionado.Exercicios = new List<Exercicio>
@@ -18,15 +18,15 @@ public class TreinoHelper : ITreinoHelper
 
     public void CM_SelecionarTreinoERemover(char p_TreinoId, List<Treino> p_Treinos)
     {
-        var m_Treino = p_Treinos.First(a => a.Id == p_TreinoId) ?? throw new KeyNotFoundException();
+        var m_Treino = p_Treinos.First(a => a.Codigo == p_TreinoId) ?? throw new KeyNotFoundException();
         p_Treinos.Remove(m_Treino);
     }
 
     public void CM_SelecionarTreinoERemoverExercicio(char p_TreinoId, IEnumerable<Treino> p_Treinos, Exercicio p_Exercicio)
     {
-        var m_TreinoSelecionado = p_Treinos.FirstOrDefault(a => a.Id == p_TreinoId);
+        var m_TreinoSelecionado = p_Treinos.FirstOrDefault(a => a.Codigo == p_TreinoId);
 
-        var m_ExercicioParaRemover = m_TreinoSelecionado.Exercicios.First(a => a.Nome == p_Exercicio.Nome) ?? throw new KeyNotFoundException();
+        var m_ExercicioParaRemover = m_TreinoSelecionado.Exercicios.First(a => a.Descricao == p_Exercicio.Descricao) ?? throw new KeyNotFoundException();
         m_TreinoSelecionado.Exercicios.Remove(m_ExercicioParaRemover);
     }
 
@@ -36,7 +36,7 @@ public class TreinoHelper : ITreinoHelper
         if (m_TreinosEhNullOuVazio)
             return 'A';
 
-        var m_IdsEmASCII = p_Treinos.Select(a => Convert.ToByte(a.Id)).Order();
+        var m_IdsEmASCII = p_Treinos.Select(a => Convert.ToByte(a.Codigo)).Order();
 
         var m_PrimeiroIdNaoEhA = m_IdsEmASCII.First() != 65;
         if (m_PrimeiroIdNaoEhA)

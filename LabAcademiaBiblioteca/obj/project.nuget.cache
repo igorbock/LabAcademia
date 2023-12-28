@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3K443ZDwDp017eHwFXfnaxY+B21UjnCHMgAIANR1+OLMBpMxT+ZNxMFjuopNSvJgqeRmSnyUKvQ05aCd3Ez24A==",
+  "dgSpecHash": "+NkYKkcX4t2vuhshVCB/Mlgz6bghFSGd4j76KiH3Sun0RIj1lJZBiHdn1ap3wkp6UsH9na8JsSHOqYLa6O2VhQ==",
   "success": true,
   "projectFilePath": "D:\\Projetos\\LabAcademia\\LabAcademiaBiblioteca\\LabAcademiaBiblioteca.csproj",
   "expectedPackageFiles": [
@@ -113,11 +113,11 @@
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.android.ref.33\\33.0.95\\microsoft.android.ref.33.33.0.95.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.essentials.ref.ios\\7.0.101\\microsoft.maui.essentials.ref.ios.7.0.101.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.core.ref.ios\\7.0.101\\microsoft.maui.core.ref.ios.7.0.101.nupkg.sha512",
-    "C:\\Users\\igorb\\.nuget\\packages\\microsoft.ios.ref\\16.4.7125\\microsoft.ios.ref.16.4.7125.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\microsoft.ios.ref\\16.4.7127\\microsoft.ios.ref.16.4.7127.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.controls.ref.ios\\7.0.101\\microsoft.maui.controls.ref.ios.7.0.101.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.controls.ref.maccatalyst\\7.0.101\\microsoft.maui.controls.ref.maccatalyst.7.0.101.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.essentials.ref.maccatalyst\\7.0.101\\microsoft.maui.essentials.ref.maccatalyst.7.0.101.nupkg.sha512",
-    "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maccatalyst.ref\\16.4.7125\\microsoft.maccatalyst.ref.16.4.7125.nupkg.sha512",
+    "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maccatalyst.ref\\16.4.7127\\microsoft.maccatalyst.ref.16.4.7127.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.core.ref.maccatalyst\\7.0.101\\microsoft.maui.core.ref.maccatalyst.7.0.101.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.maui.essentials.ref.win\\7.0.101\\microsoft.maui.essentials.ref.win.7.0.101.nupkg.sha512",
     "C:\\Users\\igorb\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.31\\microsoft.windows.sdk.net.ref.10.0.19041.31.nupkg.sha512",

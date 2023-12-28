@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabAcademia.Pages.AlunoPage"
+             NavigationPage.HasBackButton="False" >
+    <VerticalStackLayout>
+        <Button 
+            x:Name="btn_Logout"
+            Text="Logout"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Clicked="btn_Logout_Clicked"/>
+
+        <ListView x:Name="listViewTreinos" ItemSelected="listViewTreinos_ItemSelected" VerticalScrollBarVisibility="Never">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Nome}"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Margin="5"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
