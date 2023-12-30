@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabAcademia.Pages.RegistroPage"
+             Title="RegistroPage">
+    <VerticalStackLayout>
+        <Entry
+            x:Name="txt_Senha"
+            IsPassword="True"
+            Placeholder="Senha"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="txt_ConfirmaSenha"
+            IsPassword="True"
+            Placeholder="Confirmar senha"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="btn_Registrar"
+            Text="Registrar senha"
+            Clicked="btn_Registrar_Clicked"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Ou continuar com os acessos..."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

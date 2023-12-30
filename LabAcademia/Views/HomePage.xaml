@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabAcademia.Pages.HomePage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="HomePage"
+             Shell.NavBarIsVisible="True"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="Black" />
+    </ContentPage.Behaviors>
+    <ScrollView>
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+            <Label
+            Text="Ficha de treino"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="32"
+            HorizontalOptions="Center" />
+
+            <ListView x:Name="Treinos" ItemSelected="Treinos_ItemSelected" VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Nome}"
+                                   FontAttributes="Bold"
+                                   Grid.Column="0"
+                                   Margin="5"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="btn_Iniciar"
+                Text="Iniciar Treino"
+                Clicked="btn_Iniciar_Clicked"
+                BackgroundColor="Green"
+                TextColor="White"/>
+
+            <Button x:Name="btn_Historico"
+                Clicked="btn_Historico_Clicked"
+                Text="Ver histórico de treinos"
+                TextColor="Black"
+                BackgroundColor="DodgerBlue"/>
+
+            <Button
+                x:Name="btn_Logout"
+                Text="Logout"
+                BackgroundColor="Black"
+                TextColor="White"
+                Clicked="btn_Logout_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

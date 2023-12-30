@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabAcademia.MainPage"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             Title="Academia">
+             Title="Academia"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled">
     <ContentPage.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="Black" />
     </ContentPage.Behaviors>
@@ -13,79 +15,38 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label
-                Text="Ficha de treino"
+            <Label 
+                Text="Login"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <ListView x:Name="Treinos" ItemSelected="Treinos_ItemSelected" VerticalScrollBarVisibility="Never">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Nome}"
-                                       FontAttributes="Bold"
-                                       Grid.Column="0"
-                                       Margin="5"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Entry 
+                x:Name="txt_Usuario"
+                MaxLength="30"
+                Placeholder="Usuário" />
 
-            <Button Text="Criar Treino"
-                    Clicked="Button_Clicked"
-                    TextColor="Black"/>
+            <Entry
+                x:Name="txt_Senha"
+                MaxLength="30"
+                IsPassword="True"
+                Placeholder="Senha" />
 
-            <Button x:Name="Apagar"
-                    Text="Apagar Treino"
-                    Clicked="Apagar_Clicked"
-                    TextColor="Black"/>
+            <Button 
+                x:Name="btn_Login"
+                Clicked="btn_Login_Clicked"
+                Text="Login"
+                TextColor="Black"/>
 
-            <Button x:Name="btn_Iniciar"
-                    Text="Iniciar Treino"
-                    Clicked="btn_Iniciar_Clicked"
-                    BackgroundColor="Green"
-                    TextColor="White"/>
+            <ImageButton
+                x:Name="btn_QRCode"
+                Source="qrcode.png"
+                Padding="3"
+                BackgroundColor="White"
+                Clicked="btn_QRCode_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
 
-            <Button x:Name="btn_Historico"
-                    Clicked="btn_Historico_Clicked"
-                    Text="Ver histórico de treinos"
-                    TextColor="Black"
-                    BackgroundColor="DodgerBlue"/>
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

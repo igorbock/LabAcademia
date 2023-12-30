@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabAcademia.Pages.TreinoPage"
-             Title="Treino">
+             x:Class="LabAcademia.Pages.TreinoPage">
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0">
-            <ListView x:Name="Treinos" ItemSelected="Treinos_ItemSelected" VerticalScrollBarVisibility="Never">
+            <ListView 
+                x:Name="listView_Exercicios" 
+                ItemSelected="listView_Exercicios_ItemSelected" 
+                VerticalScrollBarVisibility="Never"
+                Margin="0,40,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -17,39 +20,26 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Nome}"
+                                <Label Text="{Binding Descricao}"
                                        FontAttributes="Bold"
                                        Grid.RowSpan="2"
-                                       Grid.Column="0"
-                                       Margin="5"/>
-                                <Label Text="{Binding Repeticao}"
-                                       FontAttributes="Italic"
-                                       Grid.Column="1"
-                                       Margin="5"/>
-                                <Label Text="{Binding Carga}"
-                                       FontAttributes="Bold"
-                                       Grid.Column="2"
-                                       Margin="5"/>
+                                       Grid.Column="1" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button x:Name="btn_Adicionar"
-                Text="Adicionar exercício"
-                Clicked="Button_Clicked"/>
 
-            <Button x:Name="btn_Remover"
-                    Text="Remover exercício"
-                    Clicked="Remover_Clicked"/>
+            <Label 
+                x:Name="lbl_TempoTotal"
+                TextColor="White"
+                HorizontalOptions="Center" />
 
-            <Label x:Name="lbl_TempoTotal"
-                   TextColor="White"/>
+            <Label 
+                x:Name="lbl_Exercicios"
+                TextColor="White"
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

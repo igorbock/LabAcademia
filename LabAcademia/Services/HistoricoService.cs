@@ -2,18 +2,37 @@
 
 public class HistoricoService : IHistoricoService
 {
-    private static string c_DiretorioArquivo = FileSystemHelper.CM_ObterDiretorioLocalComArquivo("Praticas.json");
-
-    public IStreamHelper<Treino> C_StreamHelper { get; set; }
-    public ITreinoHelper C_TreinoHelper { get; set; }
+    public IHttpClientFactory C_HttpClientFactory { get; private set; }
+    public HttpClient C_HttpClient { get; private set; }
 
     public HistoricoService() { }
 
-    public HistoricoService(IStreamHelper<Treino> p_StreamHelper, ITreinoHelper p_TreinoHelper)
+    public HistoricoService(IHttpClientFactory p_HttpClientFactory, IStreamHelper<Treino> p_StreamHelper, ITreinoHelper p_TreinoHelper)
     {
-        C_StreamHelper = p_StreamHelper;
-        C_TreinoHelper = p_TreinoHelper;
+        C_HttpClientFactory = p_HttpClientFactory;
+        C_HttpClient = C_HttpClientFactory.CreateClient("LabAcademiaAPI");
     }
 
-    public async Task<IEnumerable<Treino>> CM_VerHistoricoAsync() => await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
+    public async Task<IEnumerable<Treino>> CM_VerHistoricoAsync(DateTime? p_Inicio, DateTime? p_Fim)
+    {
+        await cm_AtribuirTokenAoHttpClientAsync();
+        var m_Entidade = new
+        {
+            p_Inicio,
+            p_Fim
+        };
+        var m_JSON = JsonSerializer.Serialize(m_Entidade);
+        var m_StringContent = new StringContent(m_JSON, System.Text.Encoding.UTF8, "application/json");
+        var m_Resultado = await C_HttpClient.PostAsync("api/historicos", m_StringContent);
+        m_Resultado.EnsureSuccessStatusCode();
+
+        var m_JSONRetorno = await m_Resultado.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<IEnumerable<Treino>>(m_JSONRetorno);
+    }
+
+    private async Task cm_AtribuirTokenAoHttpClientAsync()
+    {
+        var m_Token = await SecureStorage.GetAsync("Token");
+        C_HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", m_Token);
+    }
 }

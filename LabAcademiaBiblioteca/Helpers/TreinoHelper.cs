@@ -26,7 +26,7 @@ public class TreinoHelper : ITreinoHelper
     {
         var m_TreinoSelecionado = p_Treinos.FirstOrDefault(a => a.Id == p_TreinoId);
 
-        var m_ExercicioParaRemover = m_TreinoSelecionado.Exercicios.First(a => a.Nome == p_Exercicio.Nome) ?? throw new KeyNotFoundException();
+        var m_ExercicioParaRemover = m_TreinoSelecionado.Exercicios.First(a => a.Descricao == p_Exercicio.Descricao) ?? throw new KeyNotFoundException();
         m_TreinoSelecionado.Exercicios.Remove(m_ExercicioParaRemover);
     }
 

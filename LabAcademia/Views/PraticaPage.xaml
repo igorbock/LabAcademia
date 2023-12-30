@@ -6,7 +6,11 @@
         <VerticalStackLayout
         Spacing="25"
         Padding="30,0">
-            <ListView x:Name="lst_Exercicios" ItemSelected="lst_Exercicios_ItemSelected" VerticalScrollBarVisibility="Never">
+            <ListView
+                x:Name="lst_Exercicios"
+                ItemSelected="lst_Exercicios_ItemSelected"
+                VerticalScrollBarVisibility="Never"
+                Margin="0,40,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -18,9 +22,9 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto"  />
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Nome}"
+                                <Label Text="{Binding Descricao}"
                                    FontAttributes="Bold"
                                    Grid.RowSpan="2"
                                    Grid.Column="0"
@@ -34,16 +38,22 @@
                                    Grid.Column="2"
                                    Margin="5"/>
                                 <CheckBox
+                                    IsEnabled="True"
+                                    IsChecked="{Binding Concluido}"
                                     Color="White"
-                                    Grid.Column="3" />
+                                    Grid.Column="3"
+                                    Grid.Row="0"
+                                    Margin="-2, -7"
+                                    HorizontalOptions="Center"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="Concluir Treino"
-                    Clicked="Button_Clicked"/>
+            <Button 
+                Text="Concluir Treino"
+                Clicked="Button_Clicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

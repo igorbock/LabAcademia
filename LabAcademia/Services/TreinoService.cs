@@ -2,95 +2,51 @@
 
 public class TreinoService : ITreinoService
 {
-    private static string c_DiretorioArquivo = FileSystemHelper.CM_ObterDiretorioLocalComArquivo("Treinos.json");
-
-    public IStreamHelper<Treino> C_StreamHelper { get; set; }
-    public ITreinoHelper C_TreinoHelper { get; set; }
+    public IHttpClientFactory C_HttpClientFactory { get; private set; }
+    public HttpClient C_HttpClient { get; private set; }
 
     public TreinoService() { }
 
-    public TreinoService(IStreamHelper<Treino> p_StreamHelper, ITreinoHelper p_TreinoHelper)
+    public TreinoService(
+        IHttpClientFactory p_HttpClientFactory,
+        IStreamHelper<Treino> p_StreamHelper,
+        ITreinoHelper p_TreinoHelper)
     {
-        C_StreamHelper = p_StreamHelper;
-        C_TreinoHelper = p_TreinoHelper;
+        C_HttpClientFactory = p_HttpClientFactory;
+
+        C_HttpClient = C_HttpClientFactory.CreateClient("LabAcademiaAPI");
     }
 
-    public async Task CM_AdicionarExercicioAoTreinoAsync(char p_TreinoId, Exercicio p_Exercicio)
+    ~TreinoService()
     {
-        var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        C_TreinoHelper.CM_SelecionarTreinoEAdicionarExercicio(p_TreinoId, m_Treinos, p_Exercicio);
-        await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);
+        C_HttpClient?.Dispose();
     }
 
-    public async Task CM_RemoverExercicioDoTreinoAsync(char p_IdTreino, Exercicio p_Exercicio)
+    public async Task<IEnumerable<Treino>> CM_TodosTreinosAsync(string p_Matricula)
     {
-        var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        C_TreinoHelper.CM_SelecionarTreinoERemoverExercicio(p_IdTreino, m_Treinos, p_Exercicio);
-        await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);
+        await cm_AtribuirTokenAoHttpClientAsync();
+        var m_Resultado = await C_HttpClient.GetAsync($"api/alunoTreinos?p_Matricula={p_Matricula}");
+        m_Resultado.EnsureSuccessStatusCode();
+
+        var m_JSON = await m_Resultado.Content.ReadAsStringAsync();
+        var m_Retorno = JsonSerializer.Deserialize<IEnumerable<Treino>>(m_JSON);
+        return m_Retorno;
     }
 
-    public async Task CM_ApagarTreinoAsync(char p_Id)
+    public async Task<IEnumerable<Exercicio>> CM_ObterExerciciosDoTreinoAsync(int p_CodigoTreino)
     {
-        var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        C_TreinoHelper.CM_SelecionarTreinoERemover(p_Id, m_Treinos);
-        await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);
+        await cm_AtribuirTokenAoHttpClientAsync();
+        var m_Resultado = await C_HttpClient.GetAsync($"api/alunoTreinos/exercicios?p_CodigoTreino={p_CodigoTreino}");
+        m_Resultado.EnsureSuccessStatusCode();
+
+        var m_JSON = await m_Resultado.Content.ReadAsStringAsync();
+        var m_Retorno = JsonSerializer.Deserialize<IEnumerable<Exercicio>>(m_JSON);
+        return m_Retorno;
     }
 
-    public Task CM_EditarTreinoAsync(Treino p_Treino)
+    private async Task cm_AtribuirTokenAoHttpClientAsync()
     {
-        //using var m_TreinosStream = await FileSystem.OpenAppPackageFileAsync(c_DiretorioArquivo);
-        //var m_Treinos = JsonSerializer.Deserialize<List<Treino>>(m_TreinosStream);
-        //var m_Treino = m_Treinos.First(a => a.Id == p_Treino.Id) ?? throw new KeyNotFoundException();
-        //m_Treinos.Remove(m_Treino);
-        //m_Treino.Nome = p_Treino.Nome;
-        //m_Treinos.Add(m_Treino);
-        //var m_TreinosJSON = JsonSerializer.Serialize(m_Treinos);
-        //await File.WriteAllTextAsync(c_DiretorioArquivo, m_TreinosJSON);
-
-        throw new NotImplementedException();
-    }
-
-    public async Task CM_EscreverTreinoAsync(string p_Nome)
-    {
-        var m_NomeVazio = string.IsNullOrEmpty(p_Nome);
-        if (m_NomeVazio) throw new Exception("Nome não pode estar em branco!");
-        var m_NovoTreino = new Treino(p_Nome);
-
-        try
-        {
-            var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-            m_NovoTreino.Id = C_TreinoHelper.CM_IdNextValue(m_Treinos);
-            m_Treinos.Add(m_NovoTreino);
-            await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);
-        }
-        catch (FileNotFoundException)
-        {
-            m_NovoTreino.Id = 'A';
-            await C_StreamHelper.CM_SalvarNovoArquivoCasoNaoExistaAsync(m_NovoTreino, c_DiretorioArquivo);
-        }
-    }
-
-    public async Task<Treino> CM_LerTreinoAsync(char p_Id)
-    {
-        var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        return m_Treinos.First(a => a.Id == p_Id);
-    }
-
-    public Treino CM_LerTreino(char p_Id)
-    {
-        var m_Treinos = C_StreamHelper.CM_AbrirArquivoEObterTipoGenerico(c_DiretorioArquivo);
-        return m_Treinos.First(a => a.Id == p_Id);
-    }
-
-    public IEnumerable<Treino> CM_TodosTreinos()
-    {
-        try
-        {
-            return C_StreamHelper.CM_AbrirArquivoEObterTipoGenerico(c_DiretorioArquivo);
-        }
-        catch (FileNotFoundException)
-        {
-            return new List<Treino>();
-        }
+        var m_Token = await SecureStorage.GetAsync("Token");
+        C_HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", m_Token);
     }
 }

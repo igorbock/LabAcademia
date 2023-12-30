@@ -7,14 +7,14 @@ public partial class PraticaPage : ContentPage
     public IExercicioService C_ExercicioService { get; set; }
 
     public PraticaPage(Treino p_Treino, IPraticaService p_Service, IExercicioService p_ExercicioService)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
         C_Service = p_Service;
         C_ExercicioService = p_ExercicioService;
-		C_TreinoAtual = p_Treino;
-		Title = $"Prática - {p_Treino.Nome}";
-        C_Service.CM_IniciarPraticaAsync(C_TreinoAtual);
+        C_TreinoAtual = p_Treino;
+        Title = $"Prática - {p_Treino.Nome}";
+        C_TreinoAtual.Inicio = DateTime.UtcNow;
     }
 
     protected override void OnDisappearing()
@@ -28,19 +28,20 @@ public partial class PraticaPage : ContentPage
     {
         base.OnAppearing();
 
+        C_TreinoAtual.Exercicios.ForEach(a => a.Concluido = false);
         lst_Exercicios.ItemsSource = C_TreinoAtual.Exercicios;
         Shell.Current.Navigating += ShellNavigation;
     }
-    
+
     private async void ShellNavigation(object sender, ShellNavigatingEventArgs e)
     {
-        if(e.CanCancel)
+        if (e.CanCancel)
         {
             e.Cancel();
 
             if (await DisplayAlert("Você deseja sair do treino?", "Os dados serão perdidos", accept: "Sim", cancel: "Não"))
             {
-                C_Service.CM_RemoverPratica(C_TreinoAtual);
+                //C_Service.CM_RemoverPratica(C_TreinoAtual);
 
                 Shell.Current.Navigating -= ShellNavigation;
                 await Shell.Current.Navigation.PopAsync();
@@ -65,13 +66,30 @@ public partial class PraticaPage : ContentPage
             await DisplayAlert("Erro", "Use somente números na carga...", "Voltar");
             return;
         }
-        await C_ExercicioService.CM_AlterarCargaExercicioAsync(m_ExercicioSelecionado, m_Carga);
+        //await C_ExercicioService.CM_AlterarCargaExercicioAsync(m_ExercicioSelecionado, m_Carga);
 
-        OnAppearing();
+        //OnAppearing();
     }
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+        var m_ConcluirTreino = true;
+        foreach (var item in C_TreinoAtual.Exercicios)
+        {
+            if(item.Concluido == false)
+            {
+                m_ConcluirTreino = await DisplayAlert("Alerta", "Existem exercícios não concluídos! Você deseja encerrrar o treino?", accept: "Sim", cancel: "Não");
+                break;
+            }
+        }
+
+        if (m_ConcluirTreino)
+            await cm_ConcluirTreinoAsync();
+    }
+
+    private async Task cm_ConcluirTreinoAsync()
+    {
+        C_TreinoAtual.Fim = DateTime.UtcNow;
         await C_Service.CM_ConcluirPraticaAsync(C_TreinoAtual);
         Shell.Current.Navigating -= ShellNavigation;
         await Navigation.PopToRootAsync();

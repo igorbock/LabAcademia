@@ -16,9 +16,9 @@ public class ExercicioService : IExercicioService
     public async Task CM_AlterarCargaExercicioAsync(Exercicio p_Exercicio, int p_NovaCarga)
     {
         var m_Treinos = await C_StreamHelper.CM_AbrirArquivoEObterTipoGenericoAsync(c_DiretorioArquivo);
-        var m_TreinoSelecionado = m_Treinos.FirstOrDefault(a => a.Exercicios.Any(a => a.Nome.Equals(p_Exercicio.Nome)));
+        var m_TreinoSelecionado = m_Treinos.FirstOrDefault(a => a.Exercicios.Any(a => a.Descricao.Equals(p_Exercicio.Descricao)));
 
-        var m_Exercicio = m_TreinoSelecionado.Exercicios.First(a => a.Nome == p_Exercicio.Nome) ?? throw new KeyNotFoundException();
+        var m_Exercicio = m_TreinoSelecionado.Exercicios.First(a => a.Descricao == p_Exercicio.Descricao) ?? throw new KeyNotFoundException();
         m_Exercicio.Carga = p_NovaCarga;
 
         await C_StreamHelper.CM_SerializarESalvarNovoJsonAsync(m_Treinos, c_DiretorioArquivo);

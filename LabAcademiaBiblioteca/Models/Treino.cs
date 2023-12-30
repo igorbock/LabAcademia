@@ -9,14 +9,9 @@ public class Treino
         Nome = p_Nome;
     }
 
-    public Treino(char p_Id, string p_Nome)
-    {
-        Id = p_Id;
-        Nome = p_Nome;
-    }
-
-    public char Id { get; set; }
-    public string Nome { get; set; }
+    public int Id { get; set; }
+    public char Codigo { get; set; }
+    public string? Nome { get; set; }
     public List<Exercicio> Exercicios { get; set; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
