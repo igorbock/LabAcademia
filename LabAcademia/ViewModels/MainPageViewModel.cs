@@ -3,29 +3,20 @@
 public partial class MainPageViewModel : ObservableObject
 {
     [ObservableProperty]
-    private Login c_Login;
+    private string _usuario;
 
-    public ITreinoService C_TreinoService { get; set; }
-    public IExercicioService C_ExercicioService { get; set; }
-    public IPraticaService C_PraticaService { get; set; }
-    public IHistoricoService C_HistoricoService { get; set; }
+    [ObservableProperty]
+    private string _senha;
+
+    [ObservableProperty]
+    private bool _carregando;
+
     public IAuthenticationService C_AuthenticationService { get; set; }
-    public IUsuarioService C_UsuarioService { get; private set; }
 
-    public MainPageViewModel(
-        ITreinoService p_TreinoService,
-        IExercicioService p_ExercicioService,
-        IPraticaService p_PraticaService,
-        IHistoricoService p_HistoricoService,
-        IAuthenticationService p_AuthenticationService,
-        IUsuarioService p_UsuarioService)
+    public MainPageViewModel(IAuthenticationService p_AuthenticationService)
     {
-        C_TreinoService = p_TreinoService;
-        C_ExercicioService = p_ExercicioService;
-        C_PraticaService = p_PraticaService;
-        C_HistoricoService = p_HistoricoService;
         C_AuthenticationService = p_AuthenticationService;
-        C_UsuarioService = p_UsuarioService;
+        Carregando = false;
     }
 
     [RelayCommand]
@@ -33,16 +24,20 @@ public partial class MainPageViewModel : ObservableObject
     {
         try
         {
-            if (string.IsNullOrEmpty(C_Login.Usuario))
+            Carregando = true;
+
+            if (string.IsNullOrEmpty(Usuario))
                 throw new Exception("Usuário está vazio!");
 
-            if (string.IsNullOrEmpty(C_Login.Senha))
+            if (string.IsNullOrEmpty(Senha))
                 throw new Exception("A senha não pode estar vazia!");
 
-            await C_AuthenticationService.CM_LoginAsync(C_Login.Usuario, C_Login.Senha);
+            await C_AuthenticationService.CM_LoginAsync(Usuario, Senha);
 
-            await Shell.Current.GoToAsync(nameof(HomePage));
-            //Application.Current.MainPage = new AppShell(true, C_TreinoService, C_ExercicioService, C_PraticaService, C_HistoricoService, C_UsuarioService, C_AuthenticationService);
+            Usuario = string.Empty;
+            Senha = string.Empty;
+
+            await Shell.Current.GoToAsync(nameof(HomePage), true);
         }
         catch (UnauthorizedAccessException ex)
         {
@@ -53,6 +48,10 @@ public partial class MainPageViewModel : ObservableObject
         {
             var m_Toast = Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long);
             await m_Toast.Show();
+        }
+        finally
+        {
+            Carregando = false;
         }
     }
 
@@ -65,6 +64,5 @@ public partial class MainPageViewModel : ObservableObject
         var m_Token = await SecureStorage.GetAsync("Token");
         if (string.IsNullOrEmpty(m_Token) == false)
             await Shell.Current.GoToAsync(nameof(HomePage));
-            //Application.Current.MainPage = new AppShell(true, C_TreinoService, C_ExercicioService, C_PraticaService, C_HistoricoService, C_UsuarioService, C_AuthenticationService);
     }
 }

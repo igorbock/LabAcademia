@@ -26,9 +26,21 @@ public static class MauiProgram
 #endif
         //Views
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<HomePage>();
+        builder.Services.AddSingleton<TreinoPage>();
+        builder.Services.AddSingleton<PraticaPage>();
+        builder.Services.AddSingleton<HistoricoPage>();
+        builder.Services.AddSingleton<QRCodePage>();
+        builder.Services.AddSingleton<RegistroPage>();
 
         //ViewModels
         builder.Services.AddSingleton<MainPageViewModel>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+        builder.Services.AddSingleton<TreinoPageViewModel>();
+        builder.Services.AddSingleton<PraticaPageViewModel>();
+        builder.Services.AddSingleton<HistoricoPageViewModel>();
+        builder.Services.AddSingleton<QRCodePageViewModel>();
+        builder.Services.AddSingleton<RegistroPageViewModel>();
 
         //Services
         builder.Services.AddSingleton<ITreinoService, TreinoService>();
@@ -37,9 +49,6 @@ public static class MauiProgram
         builder.Services.AddSingleton<IHistoricoService, HistoricoService>();
         builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
         builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
-
-        builder.Services.AddScoped<IStreamHelper<Treino>, StreamHelper<Treino>>();
-        builder.Services.AddScoped<ITreinoHelper, TreinoHelper>();
 
         builder.Services.AddHttpClient("LabAspNetIdentity", a =>
         {

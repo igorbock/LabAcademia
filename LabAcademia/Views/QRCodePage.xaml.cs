@@ -1,22 +1,12 @@
-using CommunityToolkit.Maui.Alerts;
-
 namespace LabAcademia.Pages;
 
 public partial class QRCodePage : ContentPage
 {
-    public IUsuarioService C_UsuarioService { get; private set; }
-
-    public QRCodePage()
-    {
-        InitializeComponent();
-    }
-
-    public QRCodePage(IUsuarioService p_UsuarioService)
+    public QRCodePage(QRCodePageViewModel p_QRCodePageViewModel)
     {
         InitializeComponent();
 
-        C_UsuarioService = p_UsuarioService;
-
+        BindingContext = p_QRCodePageViewModel;
         camQRCodeView.Options = new()
         {
             AutoRotate = true
@@ -25,13 +15,14 @@ public partial class QRCodePage : ContentPage
 
     private void camQRCodeView_BarcodesDetected(object sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
     {
+        camQRCodeView.BarcodesDetected -= camQRCodeView_BarcodesDetected;
+
         Dispatcher.Dispatch(async () =>
         {
             var m_Valor = e.Results[0].Value;
-            var m_Toast = Toast.Make($"O QRCode foi detectado! O valor é: '{m_Valor}'");
-            await m_Toast.Show();
-
-            await Navigation.PushAsync(new RegistroPage(m_Valor, C_UsuarioService));
+            await (BindingContext as QRCodePageViewModel).CM_QRCodeDetectadoAsync(m_Valor);
         });
+
+        camQRCodeView.BarcodesDetected += camQRCodeView_BarcodesDetected;
     }
 }

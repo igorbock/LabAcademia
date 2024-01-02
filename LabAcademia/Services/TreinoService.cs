@@ -2,19 +2,11 @@
 
 public class TreinoService : ITreinoService
 {
-    public IHttpClientFactory C_HttpClientFactory { get; private set; }
     public HttpClient C_HttpClient { get; private set; }
 
-    public TreinoService() { }
-
-    public TreinoService(
-        IHttpClientFactory p_HttpClientFactory,
-        IStreamHelper<Treino> p_StreamHelper,
-        ITreinoHelper p_TreinoHelper)
+    public TreinoService(IHttpClientFactory p_HttpClientFactory)
     {
-        C_HttpClientFactory = p_HttpClientFactory;
-
-        C_HttpClient = C_HttpClientFactory.CreateClient("LabAcademiaAPI");
+        C_HttpClient = p_HttpClientFactory.CreateClient("LabAcademiaAPI");
     }
 
     ~TreinoService()

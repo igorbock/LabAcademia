@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="LabAcademia.Pages.TreinoPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0">
-            <ListView 
-                x:Name="listView_Exercicios" 
-                ItemSelected="listView_Exercicios_ItemSelected" 
+            <ListView
+                SelectedItem="{Binding Exercicio, Mode=TwoWay}"
+                ItemsSource="{Binding Exercicios}"
                 VerticalScrollBarVisibility="Never"
                 Margin="0,40,0,0">
+                <ListView.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ItemSelected"
+                        Command="{Binding CM_ExercicioSelecionadoCommand}"
+                        CommandParameter="{Binding Exercicio}"
+                        EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}" />
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -31,15 +44,19 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label 
-                x:Name="lbl_TempoTotal"
+            <Label
+                IsVisible="{Binding Historico}"
+                Text="{Binding Tempo}"
                 TextColor="White"
                 HorizontalOptions="Center" />
 
             <Label 
-                x:Name="lbl_Exercicios"
+                Text="{Binding Resultado}"
+                IsVisible="{Binding Carregando}"
                 TextColor="White"
                 HorizontalOptions="Center" />
+
+            <ActivityIndicator IsRunning="{Binding Carregando}" Color="LightGrey" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

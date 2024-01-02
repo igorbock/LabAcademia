@@ -2,28 +2,22 @@ namespace LabAcademia.Pages;
 
 public partial class HistoricoPage : ContentPage
 {
-    public IHistoricoService C_HistoricoService { get; set; }
-    public ITreinoService C_TreinoService { get; set; }
-
-    public HistoricoPage(
-        IHistoricoService p_HistoricoService,
-        ITreinoService p_TreinoService)
+    public HistoricoPage(HistoricoPageViewModel p_ViewModel)
 	{
 		InitializeComponent();
 
-        C_HistoricoService = p_HistoricoService;
-        C_TreinoService = p_TreinoService;
+        BindingContext = p_ViewModel;
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        lst_Historico.ItemsSource = await C_HistoricoService.CM_VerHistoricoAsync(null, null);
+        await (BindingContext as HistoricoPageViewModel).CM_CarregarHistoricoAsync();
     }
 
-    private async void lst_Historico_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    protected override void OnDisappearing()
     {
-        var m_Treino = e.SelectedItem as Treino;
-        await Shell.Current.Navigation.PushAsync(new TreinoPage(C_TreinoService, m_Treino.Id, m_Treino.Nome, true), true);
+        base.OnDisappearing();
+        (BindingContext as HistoricoPageViewModel).CM_LimparHistorico();
     }
 }

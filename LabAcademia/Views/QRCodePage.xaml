@@ -8,5 +8,5 @@
         x:Name="camQRCodeView"
         IsDetecting="True"
         IsTorchOn="False"
-        BarcodesDetected="camQRCodeView_BarcodesDetected"/>
+        BarcodesDetected="camQRCodeView_BarcodesDetected" />
 </ContentPage>

@@ -3,12 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabAcademia.MainPage"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Academia"
              Shell.NavBarIsVisible="False"
              Shell.FlyoutBehavior="Disabled">
     <ContentPage.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="Black" />
     </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -22,32 +28,37 @@
                 HorizontalOptions="Center" />
 
             <Entry 
-                x:Name="txt_Usuario"
+                Text="{Binding Usuario, Mode=TwoWay}"
                 MaxLength="30"
-                Placeholder="Usuário" />
+                Placeholder="Usuário"
+                Unfocused="Entry_Unfocused"
+                IsVisible="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
 
             <Entry
-                x:Name="txt_Senha"
+                x:Name="txtSenha"
+                Text="{Binding Senha, Mode=TwoWay}"
                 MaxLength="30"
                 IsPassword="True"
-                Placeholder="Senha" />
+                Placeholder="Senha"
+                Unfocused="Entry_Unfocused"
+                IsVisible="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
 
             <Button 
-                x:Name="btn_Login"
-                Clicked="btn_Login_Clicked"
+                Command="{Binding CM_LoginCommand}"
                 Text="Login"
-                TextColor="Black"/>
+                TextColor="Black"
+                IsVisible="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
 
             <ImageButton
-                x:Name="btn_QRCode"
                 Source="qrcode.png"
                 Padding="3"
                 BackgroundColor="White"
-                Clicked="btn_QRCode_Clicked"
+                Command="{Binding CM_CadastrarQRCodeCommand}"
+                IsVisible="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
 
-
+            <ActivityIndicator IsRunning="{Binding Carregando}" Color="LightGrey" />
         </VerticalStackLayout>
     </ScrollView>
 

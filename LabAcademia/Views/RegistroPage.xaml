@@ -2,30 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabAcademia.Pages.RegistroPage"
-             Title="RegistroPage">
-    <VerticalStackLayout>
-        <Entry
-            x:Name="txt_Senha"
-            IsPassword="True"
-            Placeholder="Senha"
+             Title="Registrar Aluno">
+    <ScrollView>
+        <VerticalStackLayout 
             VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <Entry
-            x:Name="txt_ConfirmaSenha"
-            IsPassword="True"
-            Placeholder="Confirmar senha"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <Button
-            x:Name="btn_Registrar"
-            Text="Registrar senha"
-            Clicked="btn_Registrar_Clicked"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
+            Spacing="25"
+            Padding="30,0">
+            <Entry
+                IsPassword="True"
+                Placeholder="Senha"
+                MaxLength="30"
+                Text="{Binding Senha}" />
+            <Entry
+                IsPassword="True"
+                MaxLength="30"
+                Placeholder="Confirmar Senha"
+                Text="{Binding ConfirmaSenha}" />
+            <Button
+                Text="Registrar senha"
+                Command="{Binding CM_RegistrarAlunoCommand}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
 
-        <Label 
-            Text="Ou continuar com os acessos..."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            <!--<Label 
+                Text="Ou continuar com os acessos..."
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />-->
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -12,8 +12,4 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-
-    <!--<Application.MainPage>
-        <Shell x:Name="ShellPrincipal" FlyoutBehavior="Flyout" FlyoutHeaderBehavior="Fixed" FlyoutVerticalScrollMode="Auto" />
-    </Application.MainPage>-->
 </Application>

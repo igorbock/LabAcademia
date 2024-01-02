@@ -3,12 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabAcademia.Pages.HomePage"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="HomePage"
-             Shell.NavBarIsVisible="True"
+             Shell.NavBarIsVisible="False"
              NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+        
     <ContentPage.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="Black" />
     </ContentPage.Behaviors>
+        
     <ScrollView>
         <VerticalStackLayout
         Spacing="25"
@@ -16,12 +26,30 @@
         VerticalOptions="Center">
 
             <Label
-            Text="Ficha de treino"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="32"
-            HorizontalOptions="Center" />
+                Text="Ficha de treino"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
 
-            <ListView x:Name="Treinos" ItemSelected="Treinos_ItemSelected" VerticalScrollBarVisibility="Never">
+            <ActivityIndicator IsVisible="{Binding Carregando}" IsRunning="{Binding Carregando}" Color="LightGrey" />
+
+            <Label
+                Text="{Binding Resultado}"
+                IsVisible="{Binding Resultado, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
+                HorizontalOptions="Center"
+                TextColor="White" />
+
+            <ListView 
+                SelectedItem="{Binding Treino, Mode=TwoWay}"
+                ItemsSource="{Binding Treinos}"
+                VerticalScrollBarVisibility="Never">
+                <ListView.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ItemSelected"
+                        Command="{Binding CM_SelecionarTreinoCommand}"
+                        CommandParameter="{Binding Treino}"
+                        EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}" />
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -42,24 +70,25 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button x:Name="btn_Iniciar"
-                Text="Iniciar Treino"
-                Clicked="btn_Iniciar_Clicked"
+            <Button
+                Text="{Binding TreinoExistente}"
                 BackgroundColor="Green"
-                TextColor="White"/>
-
-            <Button x:Name="btn_Historico"
-                Clicked="btn_Historico_Clicked"
-                Text="Ver histórico de treinos"
-                TextColor="Black"
-                BackgroundColor="DodgerBlue"/>
+                TextColor="White"
+                Command="{Binding CM_IniciarTreinoCommand}"
+                IsEnabled="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
 
             <Button
-                x:Name="btn_Logout"
+                Text="Ver histórico de treinos"
+                TextColor="Black"
+                BackgroundColor="DodgerBlue"
+                Command="{Binding CM_VerHistoricoCommand}"
+                IsEnabled="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <Button
                 Text="Logout"
                 BackgroundColor="Black"
                 TextColor="White"
-                Clicked="btn_Logout_Clicked"/>
+                Command="{Binding CM_LogoutCommand}"/>
 
         </VerticalStackLayout>
     </ScrollView>

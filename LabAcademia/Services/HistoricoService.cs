@@ -2,15 +2,11 @@
 
 public class HistoricoService : IHistoricoService
 {
-    public IHttpClientFactory C_HttpClientFactory { get; private set; }
     public HttpClient C_HttpClient { get; private set; }
 
-    public HistoricoService() { }
-
-    public HistoricoService(IHttpClientFactory p_HttpClientFactory, IStreamHelper<Treino> p_StreamHelper, ITreinoHelper p_TreinoHelper)
+    public HistoricoService(IHttpClientFactory p_HttpClientFactory)
     {
-        C_HttpClientFactory = p_HttpClientFactory;
-        C_HttpClient = C_HttpClientFactory.CreateClient("LabAcademiaAPI");
+        C_HttpClient = p_HttpClientFactory.CreateClient("LabAcademiaAPI");
     }
 
     public async Task<IEnumerable<Treino>> CM_VerHistoricoAsync(DateTime? p_Inicio, DateTime? p_Fim)
