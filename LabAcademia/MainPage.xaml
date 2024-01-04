@@ -46,7 +46,8 @@
             <Button 
                 Command="{Binding CM_LoginCommand}"
                 Text="Login"
-                TextColor="Black"
+                TextColor="White"
+                BackgroundColor="Blue"
                 IsVisible="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
 
             <ImageButton

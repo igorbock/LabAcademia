@@ -14,7 +14,7 @@
         Padding="30,0">
             <ListView
                 SelectedItem="{Binding Exercicio, Mode=TwoWay}"
-                ItemsSource="{Binding Treino.Exercicios, Mode=TwoWay}"
+                ItemsSource="{Binding Exercicios}"
                 VerticalScrollBarVisibility="Never"
                 Margin="0,40,0,0">
                 <ListView.Behaviors>
@@ -66,6 +66,8 @@
 
             <Button 
                 Text="Concluir Treino"
+                TextColor="White"
+                BackgroundColor="Orange"
                 Command="{Binding CM_ConcluirTreinoCommand}" />
         </VerticalStackLayout>
     </ScrollView>

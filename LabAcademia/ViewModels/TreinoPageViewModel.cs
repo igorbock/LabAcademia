@@ -49,6 +49,7 @@ public partial class TreinoPageViewModel : ObservableObject
 
         if (Historico)
         {
+            Exercicios = Treino.Exercicios.ToObservableCollection();
             var m_Duracao = Treino.Fim - Treino.Inicio;
             Tempo = string.Format(
                 "O treino foi realizado no dia {0}, com inicio às {1} e término às {2}.\n\nVocê levou {3} minutos",

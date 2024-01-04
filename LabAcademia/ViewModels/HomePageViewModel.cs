@@ -47,6 +47,7 @@ public partial class HomePageViewModel : ObservableObject
         SecureStorage.RemoveAll();
         if (Treinos != null)
             Treinos.Clear();
+        C_TreinoAtual = null;
         await Shell.Current.GoToAsync(nameof(MainPage));
 
         Carregando = true;
@@ -58,23 +59,19 @@ public partial class HomePageViewModel : ObservableObject
     [RelayCommand]
     public async Task CM_IniciarTreinoAsync()
     {
-        var m_Treino = new Treino();
-        if (C_TreinoAtual != null)
-            m_Treino = C_TreinoAtual;
-        else
+        if (C_TreinoAtual == null)
         {
             var m_Nomes = Treinos.Select(a => a.Nome).ToArray();
             var m_TreinoSelecionado = await Application.Current.MainPage.DisplayActionSheet("Iniciar treino...", "Cancelar", null, FlowDirection.MatchParent, m_Nomes) ?? throw new Exception();
             if (m_TreinoSelecionado.Equals("Cancelar"))
                 return;
 
-            m_Treino = Treinos.FirstOrDefault(a => a.Nome.Equals(m_TreinoSelecionado));
+            C_TreinoAtual = Treinos.FirstOrDefault(a => a.Nome.Equals(m_TreinoSelecionado));
         }
-        
-        //Sempre passa o Treino antigo, tem que atualizar a propriedade TreinoAtual... Talvez pela serialização do SecureStorage
+
         var m_Parametros = new Dictionary<string, object>
         {
-            { "treino", m_Treino }
+            { "treino", C_TreinoAtual }
         };
 
         await Shell.Current.GoToAsync(nameof(PraticaPage), true, m_Parametros);
@@ -83,16 +80,24 @@ public partial class HomePageViewModel : ObservableObject
     [RelayCommand]
     public async Task CM_VerificarTreinoExistenteAsync()
     {
-        var m_TreinoExistente = await SecureStorage.GetAsync("Treino");
-        if (string.IsNullOrEmpty(m_TreinoExistente))
+        try
         {
-            C_TreinoAtual = null;
-            TreinoExistente = "Iniciar Novo Treino";
+            var m_TreinoExistente = await SecureStorage.GetAsync("Treino");
+            if (string.IsNullOrEmpty(m_TreinoExistente))
+            {
+                TreinoExistente = "Iniciar Novo Treino";
+                C_TreinoAtual = null;
+            }
+            else
+            {
+                TreinoExistente = $"Continuar Treino - {C_TreinoAtual.Nome}";
+                C_TreinoAtual = JsonSerializer.Deserialize<Treino>(m_TreinoExistente);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            C_TreinoAtual = JsonSerializer.Deserialize<Treino>(m_TreinoExistente);
-            TreinoExistente = $"Continuar Treino - {C_TreinoAtual.Nome}";
+            var m_Toast = Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long);
+            await m_Toast.Show();
         }
     }
 

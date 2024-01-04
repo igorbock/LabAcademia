@@ -7,7 +7,13 @@ public partial class PraticaPageViewModel : ObservableObject
     private Treino _treino;
 
     [ObservableProperty]
+    private ObservableCollection<Exercicio> _exercicios;
+
+    [ObservableProperty]
     private Exercicio _exercicio;
+
+    [ObservableProperty]
+    private bool _concluirTreino;
 
     public IPraticaService C_PraticaService { get; private set; }
 
@@ -21,7 +27,16 @@ public partial class PraticaPageViewModel : ObservableObject
     {
         var m_JSON = JsonSerializer.Serialize(Treino);
         await SecureStorage.SetAsync("Treino", m_JSON);
-        Treino.Exercicios.ForEach(a => a.Concluido = false);
+        //Treino.Exercicios.ForEach(a => a.Concluido = false);
+        Exercicios = Treino.Exercicios.ToObservableCollection();
+        foreach (var item in Exercicios)
+            item.Concluido = false;
+    }
+
+    [RelayCommand]
+    public void CM_ContinuarPratica()
+    {
+        Exercicios = Treino.Exercicios.ToObservableCollection();
     }
 
     [RelayCommand]
@@ -36,7 +51,9 @@ public partial class PraticaPageViewModel : ObservableObject
             if (double.TryParse(m_NovaCarga, out double m_Carga) == false)
                 throw new Exception("Use somente números na carga...");
 
-            Treino.Exercicios.Find(a => a.Id == p_Exercicio.Id).Carga = m_Carga;
+            var m_Exercicio = Exercicios.FirstOrDefault(a => a.Id == p_Exercicio.Id);
+            m_Exercicio.Carga = m_Carga;
+            //Treino.Exercicios.FirstOrDefault(a => a.Id == p_Exercicio.Id).Carga = m_Carga;
         }
         catch (Exception ex)
         {
@@ -52,7 +69,7 @@ public partial class PraticaPageViewModel : ObservableObject
     public async Task CM_ConcluirTreinoAsync()
     {
         var m_ConcluirTreino = true;
-        foreach (var item in Treino.Exercicios)
+        foreach (var item in Exercicios)
         {
             if (item.Concluido == false)
             {
@@ -64,10 +81,21 @@ public partial class PraticaPageViewModel : ObservableObject
         if (m_ConcluirTreino)
         {
             Treino.Fim = DateTime.UtcNow;
+            Treino.Exercicios = Exercicios.ToList();
             await C_PraticaService.CM_ConcluirPraticaAsync(Treino);
             SecureStorage.Remove("Treino");
             Treino = null;
-            await Shell.Current.GoToAsync(nameof(HomePage));
+            Exercicios = null;
+            ConcluirTreino = true;
+            await Shell.Current.GoToAsync("..");
         }
+    }
+
+    [RelayCommand]
+    public async Task CM_AtualizarTreinoAsync()
+    {
+        var m_JSON = JsonSerializer.Serialize(Treino);
+        await SecureStorage.SetAsync("Treino", m_JSON);
+        Exercicios = null;
     }
 }
