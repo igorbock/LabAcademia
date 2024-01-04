@@ -25,7 +25,7 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
         //Views
-        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddScoped<MainPage>();
         builder.Services.AddScoped<HomePage>();
         builder.Services.AddScoped<TreinoPage>();
         builder.Services.AddScoped<PraticaPage>();
