@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabAcademia.Pages.HomePage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="LabAcademia">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+        
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="Black" />
+    </ContentPage.Behaviors>
+        
+    <ScrollView>
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+            <Label
+                Text="Ficha de treino"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <ActivityIndicator IsVisible="{Binding Carregando}" IsRunning="{Binding Carregando}" Color="LightGrey" />
+
+            <Label
+                Text="{Binding Resultado}"
+                IsVisible="{Binding Resultado, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
+                HorizontalOptions="Center"
+                TextColor="White" />
+
+            <ListView 
+                SelectedItem="{Binding Treino, Mode=TwoWay}"
+                ItemsSource="{Binding Treinos}"
+                VerticalScrollBarVisibility="Never">
+                <ListView.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ItemSelected"
+                        Command="{Binding CM_SelecionarTreinoCommand}"
+                        CommandParameter="{Binding Treino}"
+                        EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Nome}"
+                                   FontAttributes="Bold"
+                                   Grid.Column="0"
+                                   Margin="5"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button
+                Text="{Binding TreinoExistente}"
+                BackgroundColor="Green"
+                TextColor="White"
+                Command="{Binding CM_IniciarTreinoCommand}"
+                IsEnabled="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!--<Button
+                Text="Ver histórico de treinos"
+                TextColor="Black"
+                BackgroundColor="DodgerBlue"
+                Command="{Binding CM_VerHistoricoCommand}"
+                IsEnabled="{Binding Carregando, Converter={StaticResource InvertedBoolConverter}}"/>-->
+
+            <Button
+                Text="Logout"
+                BackgroundColor="Black"
+                TextColor="White"
+                Command="{Binding CM_LogoutCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

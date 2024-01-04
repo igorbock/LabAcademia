@@ -6,11 +6,36 @@
     xmlns:local="clr-namespace:LabAcademia"
     xmlns:pages="clr-namespace:LabAcademia.Pages"
     Shell.FlyoutBehavior="Flyout"
-    x:Name="ShellPrincipal">
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate pages:HomePage}"/>
-    <ShellContent
-        Title="Histórico"
-        ContentTemplate="{DataTemplate pages:HistoricoPage}"/>
+    Shell.TabBarIsVisible="False">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Loading"
+            ContentTemplate="{DataTemplate pages:LoadingPage}"
+            Route="LoadingPage"
+            Shell.FlyoutBehavior="Disabled"
+            Shell.FlyoutItemIsVisible="False" />
+
+        <ShellContent
+            Title="Login"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Shell.FlyoutBehavior="Disabled"
+            Shell.FlyoutItemIsVisible="False" />
+
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage" />
+
+        <ShellContent
+            Title="Histórico"
+            ContentTemplate="{DataTemplate pages:HistoricoPage}"
+            Route="HistoricoPage" />
+
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:QRCodePage}"
+            Route="QRCodePage"
+            Shell.FlyoutItemIsVisible="False"/>
+    </FlyoutItem>
 </Shell>

@@ -37,7 +37,7 @@ public partial class MainPageViewModel : ObservableObject
             Usuario = string.Empty;
             Senha = string.Empty;
 
-            await Shell.Current.GoToAsync(nameof(HomePage), true);
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}", true);
         }
         catch (UnauthorizedAccessException ex)
         {
@@ -56,13 +56,5 @@ public partial class MainPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public async Task CM_CadastrarQRCodeAsync() => await Shell.Current.GoToAsync(nameof(QRCodePage));
-
-    [RelayCommand]
-    public async Task CM_VerificarUsuarioAutenticadoAsync()
-    {
-        var m_Token = await SecureStorage.GetAsync("Token");
-        if (string.IsNullOrEmpty(m_Token) == false)
-            await Shell.Current.GoToAsync(nameof(HomePage));
-    }
+    public async Task CM_CadastrarQRCodeAsync() => await Shell.Current.GoToAsync($"//{nameof(QRCodePage)}");
 }

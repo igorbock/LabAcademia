@@ -33,4 +33,10 @@ public partial class RegistroPageViewModel : ObservableObject
         await C_UsuarioService.CM_RegistrarUsuarioAsync(Matricula, Senha);
         await Shell.Current.GoToAsync(nameof(MainPage), true);
     }
+
+    [RelayCommand]
+    public async Task CM_VoltarAsync()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+    }
 }

@@ -48,7 +48,7 @@ public partial class HomePageViewModel : ObservableObject
         if (Treinos != null)
             Treinos.Clear();
         C_TreinoAtual = null;
-        await Shell.Current.GoToAsync(nameof(MainPage));
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
 
         Carregando = true;
     }

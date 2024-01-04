@@ -11,7 +11,7 @@ public class Treino
 
     public int Id { get; set; }
     public char Codigo { get; set; }
-    public string? Nome { get; set; }
+    public string Nome { get; set; }
     public List<Exercicio> Exercicios { get; set; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

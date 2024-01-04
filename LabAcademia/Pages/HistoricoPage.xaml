@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LabAcademia.Pages.HistoricoPage"
+             Title="Histórico de treinos">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:SelectedItemEventArgsConverter x:Key="SelectedItemEventArgsConverter" />
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <ListView
+                SelectedItem="{Binding Treino, Mode=TwoWay}"
+                ItemsSource="{Binding Historico}"
+                VerticalScrollBarVisibility="Never">
+                <ListView.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ItemSelected"
+                        Command="{Binding CM_HistoricoSelecionadoCommand}"
+                        CommandParameter="{Binding Exercicio}"
+                        EventArgsConverter="{StaticResource SelectedItemEventArgsConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Nome}"
+                                       FontAttributes="Bold"
+                                       Grid.Column="0"
+                                       Margin="5"/>
+                                <Label Text="{Binding Inicio, StringFormat='{0:dd/MM/yyyy}'}"     
+                                       Grid.Column="1"
+                                       TextColor="Green"
+                                       Margin="0"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator IsRunning="{Binding Carregando}" Color="LightGrey" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -25,30 +25,33 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
         //Views
-        builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddSingleton<HomePage>();
-        builder.Services.AddSingleton<TreinoPage>();
-        builder.Services.AddSingleton<PraticaPage>();
-        builder.Services.AddSingleton<HistoricoPage>();
-        builder.Services.AddSingleton<QRCodePage>();
-        builder.Services.AddSingleton<RegistroPage>();
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddScoped<HomePage>();
+        builder.Services.AddScoped<TreinoPage>();
+        builder.Services.AddScoped<PraticaPage>();
+        builder.Services.AddScoped<HistoricoPage>();
+        builder.Services.AddTransient<QRCodePage>();
+        builder.Services.AddTransient<RegistroPage>();
+        builder.Services.AddTransient<LoadingPage>();
 
         //ViewModels
-        builder.Services.AddSingleton<MainPageViewModel>();
-        builder.Services.AddSingleton<HomePageViewModel>();
-        builder.Services.AddSingleton<TreinoPageViewModel>();
-        builder.Services.AddSingleton<PraticaPageViewModel>();
-        builder.Services.AddSingleton<HistoricoPageViewModel>();
-        builder.Services.AddSingleton<QRCodePageViewModel>();
-        builder.Services.AddSingleton<RegistroPageViewModel>();
+        builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<HomePageViewModel>();
+        builder.Services.AddTransient<TreinoPageViewModel>();
+        builder.Services.AddTransient<PraticaPageViewModel>();
+        builder.Services.AddTransient<HistoricoPageViewModel>();
+        builder.Services.AddTransient<QRCodePageViewModel>();
+        builder.Services.AddTransient<RegistroPageViewModel>();
 
         //Services
-        builder.Services.AddSingleton<ITreinoService, TreinoService>();
-        builder.Services.AddSingleton<IExercicioService, ExercicioService>();
-        builder.Services.AddSingleton<IPraticaService, PraticaService>();
-        builder.Services.AddSingleton<IHistoricoService, HistoricoService>();
-        builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
-        builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+        builder.Services.AddTransient<ITreinoService, TreinoService>();
+        builder.Services.AddTransient<IExercicioService, ExercicioService>();
+        builder.Services.AddTransient<IPraticaService, PraticaService>();
+        builder.Services.AddTransient<IHistoricoService, HistoricoService>();
+        builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
+        builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+
+        builder.Services.AddScoped<ISecureStorageService, SecureStorageService>();
 
         builder.Services.AddHttpClient("LabAspNetIdentity", a =>
         {

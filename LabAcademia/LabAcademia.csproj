@@ -72,22 +72,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\HistoricoPage.xaml">
+	  <MauiXaml Update="Pages\HistoricoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\HomePage.xaml">
+	  <MauiXaml Update="Pages\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\PraticaPage.xaml">
+	  <MauiXaml Update="Pages\LoadingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\QRCodePage.xaml">
+	  <MauiXaml Update="Pages\PraticaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\RegistroPage.xaml">
+	  <MauiXaml Update="Pages\QRCodePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TreinoPage.xaml">
+	  <MauiXaml Update="Pages\RegistroPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TreinoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -97,7 +100,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\TreinoPage.xaml.cs">
+	  <Compile Update="Pages\TreinoPage.xaml.cs">
 	    <DependentUpon>TreinoPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
